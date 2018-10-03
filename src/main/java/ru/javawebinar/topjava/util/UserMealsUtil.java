@@ -42,7 +42,6 @@ public class UserMealsUtil {
                         mapCaloriesPerDay.get(u.getDateTime().toLocalDate()) > caloriesPerDay)
                 )
                 .collect(Collectors.toList());
-        System.out.println(mapCaloriesPerDay);
         return userMealWithExceeds;
     }
 }
