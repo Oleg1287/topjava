@@ -45,7 +45,7 @@ public class UserMealsUtil {
                     }
                     return new UserMealWithExceed(
                             u.getDateTime(), u.getDescription(), u.getCalories(),
-                            mapPeekCal.get(u.getDateTime().toLocalDate()) > caloriesPerDay
+                            mapPeekCal.get(curDate) > caloriesPerDay
                     );
                 })
                 .collect(Collectors.toList());
