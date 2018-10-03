@@ -36,7 +36,7 @@ public class UserMealsUtil {
                     mapCaloriesPerDay.merge(u.getDateTime().toLocalDate(), u.getCalories(), Integer::sum);
                     return TimeUtil.isBetween(u.getDateTime().toLocalTime(), startTime, endTime);
                 })
-                .sorted((o1, o2) -> 0)
+                .collect(Collectors.toList()).stream()
                 .map(u -> new UserMealWithExceed(
                         u.getDateTime(), u.getDescription(), u.getCalories(),
                         mapCaloriesPerDay.get(u.getDateTime().toLocalDate()) > caloriesPerDay)
